@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+        integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="loading-container">
+        <canvas id="loading" width="120" height="120"></canvas>
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('loading').getContext('2d');
+    var colors = ['green', '#05daf2', 'red', '#cff205'];
+    var startDraw = 0;
+    var stopDraw = 0;
+    for(let i = 0; i < colors.length; i++){
+        stopDraw = (Math.PI * 2 * (i + 1))/colors.length
+        console.log(stopDraw);
+        ctx.beginPath();
+        ctx.arc(60, 60, 50, startDraw, stopDraw);
+        ctx.strokeStyle = colors[i];
+        console.log(ctx.strokeStyle);
+        ctx.lineWidth = 10; 
+        ctx.stroke();
+        startDraw = (Math.PI * 2 * (i + 1))/colors.length
+        console.log(startDraw);
+    }
+</script>
+
+</html>
